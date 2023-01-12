@@ -1,7 +1,10 @@
-var num1 = parseInt(prompt("첫번째 숫자를 입력하세요."));
-var num2 = parseInt(prompt("두번째 숫자를 입력하세요."));
-
-document.write(num1," + ",num2," = ",(num1 + num2),"<br/>");
-document.write(num1," - ",num2," = ",(num1 - num2),"<br/>");
-document.write(num1," * ",num2," = ",(num1 * num2),"<br/>");
-document.write(num1," / ",num2," = ",(num1 / num2),"<br/>");
+var num = parseInt(prompt("숫자를 입력하세요."));
+var sum = 1;
+function factorial(iNum){
+  sum *= iNum;
+  if(iNum>1){
+    factorial(iNum-1);
+  }
+}
+factorial(num);
+document.write(num,"! = ",sum);
