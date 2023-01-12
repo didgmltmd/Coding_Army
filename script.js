@@ -1,12 +1,3 @@
-function printFruit(){
-  for(var i in arguments){
-    if(i == (arguments.length - 1)){
-      document.write(arguments[i]);
-    }
-    else{
-      document.write(arguments[i],", ");
-    }
-  }
-}
+var num = parseInt(prompt("제곱할 숫자를 입력하세요."));
 
-printFruit("hello","apple","banana","pineapple");
+document.write(num,"의 제곱 : ",(num*num));
