@@ -1,9 +1,6 @@
-function func1(){
-  documnet.write("func1");
-  document.write("<br />");
+function printStar(len){
+  for(var i =0;i<len;i++){
+    document.write("*");
+  }
+  document.write("<br/>");
 }
-
-
-func1();
-
-//https://replitcodingarmy.didgmltmd.repl.co
