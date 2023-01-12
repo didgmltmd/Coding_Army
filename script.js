@@ -1,10 +1,12 @@
-var num = parseInt(prompt("숫자를 입력하세요."));
-var sum = 1;
-function factorial(iNum){
-  sum *= iNum;
-  if(iNum>1){
-    factorial(iNum-1);
+function printFruit(){
+  for(var i in arguments){
+    if(i == (arguments.length - 1)){
+      document.write(arguments[i]);
+    }
+    else{
+      document.write(arguments[i],", ");
+    }
   }
 }
-factorial(num);
-document.write(num,"! = ",sum);
+
+printFruit("hello","apple","banana","pineapple");
