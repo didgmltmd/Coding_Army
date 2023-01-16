@@ -1,23 +1,44 @@
-function People(name,tel,loc){
-  this.name = name;
-  this.tel = tel;
-  this.loc = loc;
+function Frame(){
+  this.name = "None";
+  this.first = 0;
+  this.second = 0;
+  this.third = 0;
+  this.fourth = 0;
+  this.fifth = 0;
+  this.total = 0;
+  this.avr = 0;
+}
 
-  this.showInfor = function(){
-    document.write("이름: ",this.name,"<br/>","전화번호: ",this.tel,"<br/>","주소: ",this.loc);
+function Student(){
+  this.base = Frame;
+
+  this.setScore = function(){
+    this.name = prompt("이름을 입력하세요.");
+    this.first = parseInt(prompt("첫번째 모의고사 점수를 입력하세요."));
+    this.second = parseInt(prompt("두번째 모의고사 점수를 입력하세요."));
+    this.third = parseInt(prompt("세번째 모의고사 점수를 입력하세요."));
+    this.fourth = parseInt(prompt("네번째 모의고사 점수를 입력하세요."));
+    this.fifth = parseInt(prompt("다섯번째 모의고사 점수를 입력하세요."));
+  }
+
+  this.checkSum = function(){
+    this.total = (this.first + this.second + this.third + this.fourth + this.fifth);
+    this.avr = this.total/5;
+  }
+
+  this.showResult = function(){
+    document.write("이름: ",this.name,"<br/>");
+    document.write("모의고사 성적: ",this.first," ",this.second," ",this.third," ",this.fourth," ",this.fifth,"<br/>");
+    document.write("총점: ",this.total,", 평균: ",this.avr);
   }
 }
-var searchName = prompt("찾고자하는 이름을 입력해주세요.");
 
-var peopleInfo = [];
-peopleInfo.push(new People("홍길동","010-111-1111","서울 강남구"));
-peopleInfo.push(new People("김두한","010-222-2222","서울 강서구"));
-peopleInfo.push(new People("이춘복","010-333-3333","부산 동구"));
-peopleInfo.push(new People("임꺽정","010-444-4444","전북 익산"));
-peopleInfo.push(new People("신나라","010-555-5555","서울 관악구"));
-
-for(let i = 0;i<5;i++){
-  if(peopleInfo[i].name == searchName){
-    peopleInfo[i].showInfor();
-  }
+var studentInfo = [];
+for(let i = 0;i<10;i++){
+  studentInfo.push(new Student());
+  studentInfo[i].setScore();
+  studentInfo[i].checkSum();
+  studentInfo[i].showResult();
+  document.write("<br/>");
+  document.write("<br/>");
 }
