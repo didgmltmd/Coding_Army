@@ -1,44 +1,53 @@
-function Frame(){
-  this.name = "None";
-  this.first = 0;
-  this.second = 0;
-  this.third = 0;
-  this.fourth = 0;
-  this.fifth = 0;
-  this.total = 0;
-  this.avr = 0;
+function User(name,password){
+  this.name = name;
+  this.password = password;
 }
 
-function Student(){
-  this.base = Frame;
+function signUpCheck(){
+  let name= document.getElementById("name").value
+  let password = document.getElementById("password").value
+  let passwordCheck = document.getElementByID("passwordCheck").value
+  let check = true;
 
-  this.setScore = function(){
-    this.name = prompt("이름을 입력하세요.");
-    this.first = parseInt(prompt("첫번째 모의고사 점수를 입력하세요."));
-    this.second = parseInt(prompt("두번째 모의고사 점수를 입력하세요."));
-    this.third = parseInt(prompt("세번째 모의고사 점수를 입력하세요."));
-    this.fourth = parseInt(prompt("네번째 모의고사 점수를 입력하세요."));
-    this.fifth = parseInt(prompt("다섯번째 모의고사 점수를 입력하세요."));
+  if(name===""){
+    document.getElementById("nameError").innerHTML="이름이 올바르지 않습니다."
+    check = false
+  }else{
+    document.getElementById("nameError").innerHTML=""
   }
 
-  this.checkSum = function(){
-    this.total = (this.first + this.second + this.third + this.fourth + this.fifth);
-    this.avr = this.total/5;
+  if(password !== passwordCheck){
+    document.getElementById("passwordError").innerHTML=""
+    document.getElementById("passwordCheckError").innerHTML="비밀번호가 동일하지 않습니다."
+    check = false
+  }else{
+    document.getElementById("passwordError").innerHTML=""
+    document.getElementById("passwordCheckError").innerHTML=""
   }
 
-  this.showResult = function(){
-    document.write("이름: ",this.name,"<br/>");
-    document.write("모의고사 성적: ",this.first," ",this.second," ",this.third," ",this.fourth," ",this.fifth,"<br/>");
-    document.write("총점: ",this.total,", 평균: ",this.avr);
+  if(password===""){
+    document.getElementById("passwordError").innerHTML="비밀번호를 입력해주세요."
+    check = false
+  }else{
+    document.getElementById("passwordError").innerHTML=""
   }
-}
+  if(passwordCheck===""){
+    document.getElementById("passwordCheckError").innerHTML="비밀번호를 다시 입력해주세요."
+    check = false
+  }else{
+    document.getElementById("passwordCheckError").innerHTML=""
+  }
+  
+  
+  if(check){
+    document.getElementById("nameError").innerHTML=""
+    document.getElementById("passwordError").innerHTML=""
+    document.getElementById("passwordCheckError").innerHTML=""
+    setTimeout(function(){
+      alert("가입이 완료되었습니다.")
+    },0);
+    
+  }
 
-var studentInfo = [];
-for(let i = 0;i<10;i++){
-  studentInfo.push(new Student());
-  studentInfo[i].setScore();
-  studentInfo[i].checkSum();
-  studentInfo[i].showResult();
-  document.write("<br/>");
-  document.write("<br/>");
+  
 }
